@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader
 from transformers import AutoFeatureExtractor
 from transformers import AutoModelForAudioClassification
 
-from models.transformer.dataset import FullStutteringDataset
+from models.utils.basic_dataset import FullStutteringDataset
 
 
 class Wave2Vec(pl.LightningModule):

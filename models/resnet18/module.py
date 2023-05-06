@@ -5,7 +5,8 @@ from sklearn.metrics import f1_score, accuracy_score
 from torch import nn
 from torch.nn import functional as F
 from torch.utils.data import DataLoader
-from utils.dataset import FullStutteringDataset
+
+from models.utils.features_dataset import FullStutteringDataset
 
 
 class ResNet18(pl.LightningModule):
