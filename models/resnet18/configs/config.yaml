@@ -1,0 +1,44 @@
+description: example config
+
+config_name: ${hydra:job.config_name}
+model_name: ResNet18
+version: 20
+
+learning_rate: 1e-6
+gpus: [0]
+
+run_path: # path where metrics and checkpoints will be saved
+raw_csv_path: # path to csv with sep-28k labels
+data_path: # path to directory with sep-28k dataset
+folds_csv: csv/sep28k/folds.csv
+
+test_folds: [0, 5]
+valid_folds: [8, 16]
+
+stutter_labels: ['Prolongation', 'Block', 'SoundRep', 'WordRep', 'Interjection']
+
+batch_size: 32
+num_workers: 8
+threshold: 0.5
+
+features:
+  in_channels: 1
+  mfcc: False
+  spectrogram: False
+  mel_spectrogram: True
+  chroma: False
+  nb_frames: 1
+  input_size: 40
+  tabular_mfcc: False
+
+
+model:
+  linear:
+    in_features: 256
+    hidden_size: 64
+
+save_top_k: 3
+monitor_mode: max
+best_model_metric: Val_metrics/Mean_f1
+max_epoch: 40
+precision: 16

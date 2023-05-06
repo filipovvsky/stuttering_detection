@@ -7,11 +7,10 @@ version: null
 learning_rate: 1e-5
 gpus: [0]
 
-# byk maszyna
 run_path: # path where metrics and checkpoints will be saved
 raw_csv_path: # path to csv with sep-28k labels
 data_path: # path to directory with sep-28k dataset
-folds_csv: # path to csv with data divided into folds
+folds_csv: csv/sep28k/folds.csv
 
 test_folds: [0, 5]
 valid_folds: [8, 16]

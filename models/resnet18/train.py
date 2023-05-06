@@ -7,12 +7,12 @@ from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import ModelCheckpoint
 from pytorch_lightning.loggers import TensorBoardLogger
 
-from models.wave2vec.module import Wave2Vec
+from models.resnet18.module import ResNet18
 
 
 @hydra.main(version_base=None, config_path='configs')
 def train(config):
-    model = Wave2Vec(config)
+    model = ResNet18(config)
 
     run_name = Path(config.config_name).name
     out_dir = Path(config.run_path) / run_name
