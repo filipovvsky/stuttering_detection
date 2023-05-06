@@ -1,0 +1,35 @@
+description: example config for transformer training
+
+config_name: ${hydra:job.config_name}
+model_name: Wave2Vec
+version: null
+
+learning_rate: 1e-5
+gpus: [0]
+
+# byk maszyna
+run_path: # path where metrics and checkpoints will be saved
+raw_csv_path: # path to csv with sep-28k labels
+data_path: # path to directory with sep-28k dataset
+folds_csv: # path to csv with data divided into folds
+
+test_folds: [0, 5]
+valid_folds: [8, 16]
+
+stutter_labels: ['Prolongation', 'Block', 'SoundRep', 'WordRep', 'Interjection']
+
+batch_size: 32
+num_workers: 8
+threshold: 0.5
+
+features:
+  in_channels: 1
+
+loss:
+  binary_coeff: 0
+
+save_top_k: 3
+monitor_mode: max
+best_model_metric: Val_metrics/Mean_f1
+max_epoch: 40
+precision: 16
